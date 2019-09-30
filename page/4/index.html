@@ -193,23 +193,6 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodbe6a8a1e7b38ae69fa5e689be/">mongodb模糊查找</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-06-06
-        </span><span class="post-category">
-            <a href="/categories/CodeIgniter/">CodeIgniter</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><p>db.user_info.find({email:{$regex:’majia’}}).sort({‘ct’:-1})</p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongo-ine69fa5e8afa2e79a84e4b880e4b8aabug/">mongo $in查询的一个bug</a>
         </h1>
 
@@ -236,6 +219,23 @@
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodbe6a8a1e7b38ae69fa5e689be/">mongodb模糊查找</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>db.user_info.find({email:{$regex:’majia’}}).sort({‘ct’:-1})</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-e58faae698bee7a4bae69fa5e8afa2e7bb93e69e84e69f90e4b880e58897/">只显示查询结构某一列</a>
         </h1>
 
@@ -249,6 +249,29 @@
     </header>
 
     <div class="post-content"><p>db.user_info.find({‘email’:{‘$regex’:’fitshike.com’}},{‘email’:1,’_id’:0})</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-e4b88de883bde590afe58aa8e79a84e997aee9a298/">mongodb 不能启动的问题</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><pre><code>sudo rm /var/lib/mongodb/mongod.lock
+
+
+
+sudo service mongod restart
+sudo mongod --dbpath /var/lib/mongodb/ --repair
+sudo mongod --dbpath /var/lib/mongodb/ --journal</code></pre><p>sudo mongod –dbpath /var/lib/mongodb/ –journal –smallfiles</p>
 
         </div></article>
       <article class="post">
@@ -277,7 +300,7 @@
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-e4b88de883bde590afe58aa8e79a84e997aee9a298/">mongodb 不能启动的问题</a>
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-e588a0e999a4collectionse4b8ade79a84e69f90e4b8aakey/">mongodb 删除collections中的某个key</a>
         </h1>
 
       <div class="post-meta">
@@ -289,30 +312,10 @@
         </div>
     </header>
 
-    <div class="post-content"><pre><code>sudo rm /var/lib/mongodb/mongod.lock
+    <div class="post-content"><p>delete db.ocm.videoId</p>
+<p>db.domain.update({},{$unset: {affLink:1}},{multi: true});  </p>
+<p>db.user_account_gym.update({},{$unset:{mutexCodes:1}},{multi:true});  </p>
 
-
-
-sudo service mongod restart
-sudo mongod --dbpath /var/lib/mongodb/ --repair
-sudo mongod --dbpath /var/lib/mongodb/ --journal</code></pre><p>sudo mongod –dbpath /var/lib/mongodb/ –journal –smallfiles</p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-javascript-apie68993e58db0e5afb9e8b1a1e79a84e587bde695b0/">mongodb javascript api打印对象的函数</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-06-06
-        </span><span class="post-category">
-            <a href="/categories/CodeIgniter/">CodeIgniter</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><pre><code>&lt;code&gt;printjson&lt;/code&gt;</code></pre>
         </div></article>
       <nav class="pagination"><a class="prev" href="/page/3/">
         <i class="iconfont icon-left"></i>
