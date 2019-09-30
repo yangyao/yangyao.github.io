@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<link rel="alternate" href="/default" title="Hexo"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="alternate" href="/default" title="YangYao's blog"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
 <link rel="canonical" href="http://yoursite.com/">
 
 <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
@@ -37,12 +37,12 @@
   window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
 </script>
 
-    <title>Hexo</title>
+    <title>YangYao's blog</title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
-    <a href="/." class="logo">Hexo</a>
+    <a href="/." class="logo">YangYao's blog</a>
   </div>
   <div class="mobile-navbar-icon">
     <span></span>
@@ -71,7 +71,7 @@
 </nav>
 <div class="container" id="mobile-panel">
       <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Hexo</a>
+  <a href="/." class="logo">YangYao's blog</a>
 </div>
 
 <nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
@@ -192,6 +192,33 @@
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2017-04-24-phpstorm-meta-for-onethink/">为onethink增加phpstorm智能代码提示</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-30
+        </span><span class="post-category">
+            <a href="/categories/php/">php</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><h2 id="让phpstorm支持thinkphp中的全局函数跳转"><a href="#让phpstorm支持thinkphp中的全局函数跳转" class="headerlink" title="让phpstorm支持thinkphp中的全局函数跳转"></a>让phpstorm支持thinkphp中的全局函数跳转</h2><hr>
+<h3 id="如何编写phpstorm插件"><a href="#如何编写phpstorm插件" class="headerlink" title="如何编写phpstorm插件"></a>如何编写phpstorm插件</h3><ul>
+<li>可以使用 <code>PHPSTORM_META</code>来进行函数参数的智能映射</li>
+<li>在项目根目录建立 <code>.phpstorm.meta.php</code></li>
+<li>映射非常的死板-所以需要有个脚本自动去生成</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/7101c223ly1fey2sxdzoxj20s50863zf.jpg" alt></p>
+<hr>
+<h3 id="生成脚本"><a href="#生成脚本" class="headerlink" title="生成脚本"></a>生成脚本</h3><p><img src="http://ww1.sinaimg.cn/large/7101c223ly1fey2ugo5sdj20ng0m30um.jpg" alt></p>
+<p><a href="https://gist.github.com/yangyao/57a777a3c6f40b1324322efdf21f92dd" title="glist" target="_blank" rel="noopener">https://gist.github.com/yangyao/57a777a3c6f40b1324322efdf21f92dd</a></p>
+<hr>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/09/30/2017-11-07-the-end-of-web-tech/">web技术的尽头</a>
         </h1>
 
@@ -284,33 +311,6 @@
 <li>发布流程</li>
 <li>测试流程</li>
 </ul>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2017-04-24-phpstorm-meta-for-onethink/">为onethink增加phpstorm智能代码提示</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-09-30
-        </span><span class="post-category">
-            <a href="/categories/php/">php</a>
-            </span>
-        </div>
-    </header>
-
-    <div class="post-content"><h2 id="让phpstorm支持thinkphp中的全局函数跳转"><a href="#让phpstorm支持thinkphp中的全局函数跳转" class="headerlink" title="让phpstorm支持thinkphp中的全局函数跳转"></a>让phpstorm支持thinkphp中的全局函数跳转</h2><hr>
-<h3 id="如何编写phpstorm插件"><a href="#如何编写phpstorm插件" class="headerlink" title="如何编写phpstorm插件"></a>如何编写phpstorm插件</h3><ul>
-<li>可以使用 <code>PHPSTORM_META</code>来进行函数参数的智能映射</li>
-<li>在项目根目录建立 <code>.phpstorm.meta.php</code></li>
-<li>映射非常的死板-所以需要有个脚本自动去生成</li>
-</ul>
-<p><img src="http://ww1.sinaimg.cn/large/7101c223ly1fey2sxdzoxj20s50863zf.jpg" alt></p>
-<hr>
-<h3 id="生成脚本"><a href="#生成脚本" class="headerlink" title="生成脚本"></a>生成脚本</h3><p><img src="http://ww1.sinaimg.cn/large/7101c223ly1fey2ugo5sdj20ng0m30um.jpg" alt></p>
-<p><a href="https://gist.github.com/yangyao/57a777a3c6f40b1324322efdf21f92dd" title="glist" target="_blank" rel="noopener">https://gist.github.com/yangyao/57a777a3c6f40b1324322efdf21f92dd</a></p>
-<hr>
 
         </div></article>
       <article class="post">
@@ -425,6 +425,21 @@ p.value.then(function(data){
         </div></article>
       <article class="post">
     <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-30-windows-cmd-doskey/">windows cmd doskey</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-30
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>###windows 下好看的cmd</p>
+<pre><code>对中文显示友好，推荐`conEMU`</code></pre><p>###配置别名</p>
+<pre><code>doskey ll=ls -l</code></pre>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-26-nginx-bug/">invalid PID number</a>
         </h1>
 
@@ -439,21 +454,6 @@ p.value.then(function(data){
 <pre><code>sudo nginx -c /etc/nginx/nginx.conf
 sudo /usr/sbin/nginx -t
 sudo /usr/sbin/nginx -s reload</code></pre>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-30-windows-cmd-doskey/">windows cmd doskey</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-09-30
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>###windows 下好看的cmd</p>
-<pre><code>对中文显示友好，推荐`conEMU`</code></pre><p>###配置别名</p>
-<pre><code>doskey ll=ls -l</code></pre>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -573,7 +573,7 @@ Crypt::ecrypt()</code></pre><h2 id="相关介绍文章"><a href="#相关介绍�
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-07-08-laravel-compile-error/">laravel compile 的bug</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-07-01-php-mongo-Embedded-document/">php mongo 内嵌文档查询</a>
         </h1>
 
       <div class="post-meta">
@@ -582,16 +582,7 @@ Crypt::ecrypt()</code></pre><h2 id="相关介绍文章"><a href="#相关介绍�
         </span></div>
     </header>
 
-    <div class="post-content"><h3 id="错误日志"><a href="#错误日志" class="headerlink" title="错误日志"></a>错误日志</h3><pre><code>&apos;Declaration of Illuminate\View\Engines\CompilerEngine::handleViewException() should be compatible</code></pre><h3 id="错误原因"><a href="#错误原因" class="headerlink" title="错误原因"></a>错误原因</h3><pre><code>原因是本地生成的compiler.php 被上传到其他环境的原因。</code></pre><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><pre><code>rm bootstrap/compile.php
-
-或者
-
-php artisan clear-compiled</code></pre><h3 id="最佳方案，修改composer-json文件"><a href="#最佳方案，修改composer-json文件" class="headerlink" title="最佳方案，修改composer.json文件"></a>最佳方案，修改composer.json文件</h3><pre><code>&quot;pre-install-cmd&quot; :[
-    &quot;php artisan clear-compiled&quot;
-],
-&quot;pre-update-cmd&quot;: [
-    &quot;php artisan clear-compiled&quot;
-],</code></pre>
+    <div class="post-content"><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><pre><code>$query[&apos;data.status&apos;]=&apos;on&apos;</code></pre>
         </div></article>
       <nav class="pagination"><a class="next" href="/page/2/">
         <span class="next-text">Next</span>
