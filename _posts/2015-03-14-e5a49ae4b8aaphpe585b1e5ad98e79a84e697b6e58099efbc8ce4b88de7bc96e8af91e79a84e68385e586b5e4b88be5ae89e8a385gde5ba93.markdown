@@ -1,0 +1,87 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2015-03-14 09:03:59+00:00
+layout: post
+slug: '%e5%a4%9a%e4%b8%aaphp%e5%85%b1%e5%ad%98%e7%9a%84%e6%97%b6%e5%80%99%ef%bc%8c%e4%b8%8d%e7%bc%96%e8%af%91%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%e5%ae%89%e8%a3%85gd%e5%ba%93'
+title: 多个php共存的时候，不编译的情况下安装GD库
+wordpress_id: 63
+categories:
+- CodeIgniter
+---
+
+先按照这个文章安装所有需要的库（没有的库或者文件自己百度了安装）
+
+
+
+http://www.cnblogs.com/dyllove98/archive/2013/06/17/3141062.html
+
+
+
+PHP 5.6.1 (cli) (built: Oct 16 2014 12:43:34)
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.6.0, Copyright (c) 1998-2014 Zend Technologies
+with Zend OPcache v7.0.4-dev, Copyright (c) 1999-2014, by Zend Technologies
+
+
+
+1.安装完所有扩展，在安装GD的时候报错。
+
+gd_png.c:15:53: fatal error: png.h: No such file or directory
+
+解决办法
+
+1. vim gd_png.c
+
+2. 将#include “png.h” 替换成：#include “/usr/local/libpng/include/png.h”
+
+3. make && make install
+
+2.安装扩展
+
+* cd <php源码>/ext/gd
+
+* /usr/local/php56/bin/phpize
+
+./configure --with-gd=/usr/local/gd --with-jpeg-dir=/usr/local/jpeg --with-png-dir=/usr/local/libpng --with-freetype-dir=/usr/local/freetype --with-zlib-dir=/usr/local/zlib --with-php-config=/usr/local/php56/bin/php-config --with-xpm-dir=/usr/lib/
+
+
+报错
+
+configure: error: xpm.h not found.
+
+解决办法
+
+sudo apt-get install libXpm-dev
+
+
+报错
+
+configure: error: Unable to find gd.h anywhere under /usr/local/gd
+
+
+解决方法2
+
+
+./configure --with-gd --with-jpeg-dir=/usr/local/jpeg --with-png-dir=/usr/local/libpng --with-freetype-dir=/usr/local/freetype --with-zlib-dir=/usr/local/zlib --with-php-config=/usr/local/php56/bin/php-config --with-xpm-dir=/usr/lib/
+
+
+配置成功
+
+
+make
+
+报错
+libz.a(compress.o):relocation R_X86_64_32 against `.rodata.str1.1' can not be used when making a shared object; recompile with -fPIC
+/usr/local/zlib/lib/libz.a: could not read symbols: Bad value
+
+重新编译zlib
+
+编辑MakeFile文件 在CFLAGS=-O3  一行最后增加  -fPIC
+make &&　make install
+
+编辑 sudo vim /etc/php56/php.ini
+
+
+
+重启php-fpm

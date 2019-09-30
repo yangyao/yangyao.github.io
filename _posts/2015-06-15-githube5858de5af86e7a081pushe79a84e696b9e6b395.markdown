@@ -1,0 +1,65 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2015-06-15 07:11:52+00:00
+layout: post
+slug: github%e5%85%8d%e5%af%86%e7%a0%81push%e7%9a%84%e6%96%b9%e6%b3%95
+title: github免密码push的方法
+wordpress_id: 84
+categories:
+- CodeIgniter
+tags:
+- git
+---
+
+
+
+
+
+1.生成ssh key
+
+
+  
+
+
+ssh-keygen -t rsa -C ["your_email@example.com"](mailto:%26quot;your_email@example.com%26quot;)
+
+  
+
+
+2.添加到github
+
+  
+
+
+3.校验ssh key
+
+  
+
+
+ssh -T [git@github.com](mailto:git@github.com)
+
+  
+
+
+4.修改配置
+
+url 改成ssh的，而不是https的
+
+[remote "origin"]  
+
+url = git@github.com:yangyao/yangyao.git  
+
+
+  
+
+
+5.以后避免
+
+  
+
+
+clone的时候就要选择ssh的url
+
+  
+

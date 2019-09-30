@@ -1,0 +1,19 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2014-11-13 04:43:42+00:00
+layout: post
+slug: '%e5%9c%a8%e6%8e%a7%e5%88%b6%e5%8f%b0%e5%bc%95%e5%85%a5jquery%e6%88%96%e8%80%85%e5%85%b6%e4%bb%96%e5%ba%93'
+title: 在控制台引入jquery或者其他库
+wordpress_id: 50
+categories:
+- CodeIgniter
+---
+
+遇到很多页面请求谷歌api的，都可以用这个替代。
+
+
+
+javascript:void((function(){var scripts = document.createElement("script");
+scripts.setAttribute("src","http://libs.baidu.com/jquery/1.9.0/jquery.js");
+document.body.appendChild(scripts);}));

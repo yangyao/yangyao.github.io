@@ -1,0 +1,22 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+
+# Setup
+title:            YangYao
+tagline:          'Yet Another Web Developer.'
+description:      'Noting goes here !'
+url:              http://yangyao.github.io
+
+author:
+  name:           'YangYao'
+  url:            https://weibo.com/yangyaohappy
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/yangyao/yangyao.github.io

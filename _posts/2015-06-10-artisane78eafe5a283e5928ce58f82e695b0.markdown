@@ -1,0 +1,22 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2015-06-10 07:54:32+00:00
+layout: post
+slug: artisan%e7%8e%af%e5%a2%83%e5%92%8c%e5%8f%82%e6%95%b0
+title: artisan环境和参数
+wordpress_id: 81
+categories:
+- CodeIgniter
+tags:
+- laravel
+---
+
+
+
+
+
+    
+    
+    php artisan mail:all --skip=3  --env=dev
+    

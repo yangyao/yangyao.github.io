@@ -1,0 +1,92 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2014-03-17 03:41:41+00:00
+layout: post
+slug: ci%e7%9a%84%e7%bc%93%e5%ad%98
+title: CI的缓存
+wordpress_id: 11
+categories:
+- CodeIgniter
+---
+
+最近学习CI，是比较简单的一个框架了，无非是自动加载，单一入口，MVC，确实不知道怎么去学习。于是找了一个基于CI做的CMS来看看，名字叫X6CMS，百度一下就可以下载到了。里面有这样一段代码。
+
+
+
+
+
+
+
+
+
+  1. /* 
+
+
+  2. * 从语言缓存开始分析 
+
+
+  3. * 1.先获得$cachestr，比如lang 
+
+
+  4. * 2.依据$cachestr查找到缓存（位于 data/lang） 
+
+
+  5. * 3.如果没有，创建缓存（关键） 
+
+
+  6. */
+
+
+  7. function loadLang(){ 
+
+
+  8. $cachestr = 'lang'; 
+
+
+  9. $cache = $this->CI->cache->get($cachestr); 
+
+
+  10. //puts($cache); 
+
+
+  11. if(!$cache){ 
+
+
+  12. $data = $this->CI->Data_model->getData(array('status'=>1),'listorder',0,0,'lang'); 
+
+
+  13. //puts($data); 
+
+
+  14. foreach($data as $item){ 
+
+
+  15. $item['url'] = $this->defaultLang==$item['varname']?base_url():base_url('?lang='.$item['varname']); 
+
+
+  16. $item['thumb'] = get_image_url($item['icon']); 
+
+
+  17. $cache[$item['varname']] = $item; 
+
+
+  18. //puts($item['varname']);zh_cn en 
+
+
+  19. } 
+
+
+  20. //保存缓存，其中包含3个参数，$cachestr，$cache数组，还有就是缓存时间 
+
+
+  21. $this->CI->cache->save($cachestr,$cache,2592000); 
+
+
+  22. } 
+
+
+  23. return $cache; 
+
+
+  24. }

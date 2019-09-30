@@ -1,0 +1,58 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2014-07-02 11:04:02+00:00
+layout: post
+slug: eaccelerator_lock%e5%8f%88%e6%98%af%e4%b8%80%e4%b8%aa%e7%89%88%e6%9c%ac%e7%9a%84%e9%97%ae%e9%a2%98
+title: eaccelerator_lock又是一个版本的问题
+wordpress_id: 39
+categories:
+- 个人
+---
+
+The shared memory caching functions (eaccelerator_get and eaccelerator_put among others) have been removed from 0.9.6. You will need to stick with 0.9.5.3 and configure it appropriately:
+
+./configure --enable-eaccelerator=shared --with-php-config=$PHP_PREFIX/bin/php-config --with-eaccelerator-shared-memory
+
+[http://groups.google.com/group/eaccelerator/browse_thread/thread/b66c9ca...](http://groups.google.com/group/eaccelerator/browse_thread/thread/b66c9ca533f9977c/91f065751b668bae?pli=1)
+
+Also, you can verify if the functions are there ahead of time with this bit of PHP code:
+
+
+
+
+
+
+    
+    <code><?php
+    print_r (get_extension_funcs( 'eaccelerator' ));
+    ?></code>
+
+
+
+    
+    <code>果然没有</code>
+
+
+
+    
+    array(9) {
+      [0] => string(20) "eaccelerator_caching"
+      [1] => string(18) "eaccelerator_clear"
+      [2] => string(18) "eaccelerator_clean"
+      [3] => string(17) "eaccelerator_info"
+      [4] => string(18) "eaccelerator_purge"
+      [5] => string(27) "eaccelerator_cached_scripts"
+      [6] => string(28) "eaccelerator_removed_scripts"
+      [7] => string(24) "eaccelerator_check_mtime"
+      [8] => string(22) "eaccelerator_optimizer"
+    }
+
+
+
+    
+    <code>
+    </code>
+
+
+

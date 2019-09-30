@@ -1,0 +1,32 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2015-06-06 10:26:12+00:00
+layout: post
+slug: '%e5%88%87%e6%8d%a2%e5%88%86%e6%94%af'
+title: 切换分支
+wordpress_id: 80
+categories:
+- CodeIgniter
+tags:
+- git
+---
+
+
+
+
+
+先确保master的已经pull 并且push干净。
+
+
+然后 切换到自己工作的分支。
+
+  
+
+
+再 git merge master 将本地的master merge到工作的分支。
+
+  
+
+
+merge之后都要download代码。

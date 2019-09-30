@@ -1,0 +1,38 @@
+---
+author: 269586320@qq.com
+comments: true
+date: 2015-06-06 04:54:09+00:00
+layout: post
+published: false
+slug: '%e5%85%b3%e4%ba%8e%e7%bb%9f%e8%ae%a1%e6%80%bb%e6%95%b0%e7%9a%84%e9%97%ae%e9%a2%98'
+title: 关于统计总数的问题
+wordpress_id: 67
+categories:
+- CodeIgniter
+tags:
+- fitshike
+---
+
+
+
+
+
+对于每日和每小时登陆用户数。
+
+
+  
+
+
+每小时登陆的总用户数，没有意义。
+
+  
+
+
+每日登陆的用户总数，不等于每个小时登陆的用户数相加。
+
+每小时登陆的总用户数，只能说明 该小时段内的登陆用户总数。
+
+用于说明哪段时间用户最活跃。
+
+  
+
