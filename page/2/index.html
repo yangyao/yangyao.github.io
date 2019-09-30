@@ -106,51 +106,6 @@
         <div class="content-wrapper">
           <div id="content" class="content"><section id="posts" class="posts"><article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-30-windows-cmd-doskey/">windows cmd doskey</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-09-30
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>###windows 下好看的cmd</p>
-<pre><code>对中文显示友好，推荐`conEMU`</code></pre><p>###配置别名</p>
-<pre><code>doskey ll=ls -l</code></pre>
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-24-install-node-rtmp-server/">安装node-rtmp-server</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-09-30
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>1.安装server</p>
-<pre><code>git clone https://github.com/iizukanao/node-rtsp-rtmp-server.git
-cd node-rtsp-rtmp-server
-npm install -d</code></pre><p>2.配置运行</p>
-<pre><code>vim config.coffee
-sudo coffee server.coffee</code></pre><p>3.音频视频发布(rtmp的方式)</p>
-<pre><code>下载安装 Flash Media Live Encoder 3.2
-
-FMS URL :rtmp://192.168.199.165/live
-Stream :STREAM_NAME
-
-安装AAC插件
-
-Audio Format : AAC
-
-connect ! start</code></pre><p>4.视频发布（rtsp的方式）</p>
-<pre><code>rtsp://192.168.199.165:8080/live/STREAM_NAME</code></pre><p>5.客户端接受</p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
       <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-21-download-laracast-lessons/">下载laracasts视频</a>
         </h1>
 
@@ -215,7 +170,7 @@ connect ! start</code></pre><p>4.视频发布（rtsp的方式）</p>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-18-ubuntu-install-go/">ubuntu安装go</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-26-nginx-bug/">invalid PID number</a>
         </h1>
 
       <div class="post-meta">
@@ -224,11 +179,41 @@ connect ! start</code></pre><p>4.视频发布（rtsp的方式）</p>
         </span></div>
     </header>
 
-    <div class="post-content"><p>Ubuntu安装Go：</p>
-<pre><code>sudo add-apt-repository ppa:gophers/go
-sudo apt-get update
-sudo apt-get install golang-stable</code></pre><p>或</p>
-<pre><code>sudo apt-get install golang</code></pre>
+    <div class="post-content"><p>###报错信息</p>
+<pre><code>nginx: [error] invalid PID number</code></pre><p>###解决方案</p>
+<pre><code>sudo nginx -c /etc/nginx/nginx.conf
+sudo /usr/sbin/nginx -t
+sudo /usr/sbin/nginx -s reload</code></pre>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-24-install-node-rtmp-server/">安装node-rtmp-server</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-30
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>1.安装server</p>
+<pre><code>git clone https://github.com/iizukanao/node-rtsp-rtmp-server.git
+cd node-rtsp-rtmp-server
+npm install -d</code></pre><p>2.配置运行</p>
+<pre><code>vim config.coffee
+sudo coffee server.coffee</code></pre><p>3.音频视频发布(rtmp的方式)</p>
+<pre><code>下载安装 Flash Media Live Encoder 3.2
+
+FMS URL :rtmp://192.168.199.165/live
+Stream :STREAM_NAME
+
+安装AAC插件
+
+Audio Format : AAC
+
+connect ! start</code></pre><p>4.视频发布（rtsp的方式）</p>
+<pre><code>rtsp://192.168.199.165:8080/live/STREAM_NAME</code></pre><p>5.客户端接受</p>
+
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -244,6 +229,27 @@ sudo apt-get install golang-stable</code></pre><p>或</p>
     <div class="post-content"><p>使用方法</p>
 <pre><code>tree H:\laracasts\lessons /f &gt;D:/123.txt</code></pre><p>第一个参数 <code>H:\laracasts\lessons</code> 是要导出的文件夹</p>
 <p>最后一个参数是输出位置。</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-16-github-ssh-password/">github免密码push的方法</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-30
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>1.生成ssh key</p>
+<p>ssh-keygen -t rsa -C “<a href="mailto:your_email@example.com" target="_blank" rel="noopener">your_email@example.com</a>“</p>
+<p>2.添加到github</p>
+<p>3.校验ssh key</p>
+<p>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+<p>4.修改配置<br>url 改成ssh的，而不是https的<br>[remote “origin”]<br>        url = <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:yangyao/yangyao.git</p>
+<p>5.以后避免</p>
+<p>clone的时候就要选择ssh的url</p>
 
         </div></article>
       <article class="post">
@@ -300,7 +306,7 @@ sudo apt-get install golang-stable</code></pre><p>或</p>
         </div></article>
       <article class="post">
     <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-16-github-ssh-password/">github免密码push的方法</a>
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-18-ubuntu-install-go/">ubuntu安装go</a>
         </h1>
 
       <div class="post-meta">
@@ -309,15 +315,11 @@ sudo apt-get install golang-stable</code></pre><p>或</p>
         </span></div>
     </header>
 
-    <div class="post-content"><p>1.生成ssh key</p>
-<p>ssh-keygen -t rsa -C “<a href="mailto:your_email@example.com" target="_blank" rel="noopener">your_email@example.com</a>“</p>
-<p>2.添加到github</p>
-<p>3.校验ssh key</p>
-<p>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
-<p>4.修改配置<br>url 改成ssh的，而不是https的<br>[remote “origin”]<br>        url = <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:yangyao/yangyao.git</p>
-<p>5.以后避免</p>
-<p>clone的时候就要选择ssh的url</p>
-
+    <div class="post-content"><p>Ubuntu安装Go：</p>
+<pre><code>sudo add-apt-repository ppa:gophers/go
+sudo apt-get update
+sudo apt-get install golang-stable</code></pre><p>或</p>
+<pre><code>sudo apt-get install golang</code></pre>
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -337,6 +339,33 @@ cd node-v0.12.4
 ./configure 
 make 
 sudo make install </code></pre>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-16-wordpress-to-jekyll/">从wordpress迁移到jekyll</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-30
+        </span></div>
+    </header>
+
+    <div class="post-content"><p>##从wordpress迁移到jekyll</p>
+<p>1.将wordpress内容导出成xml文件</p>
+<p>2.将xml变成markdown:<a href="https://github.com/thomasf/exitwp" target="_blank" rel="noopener">https://github.com/thomasf/exitwp</a></p>
+<p>###exitwp的使用方法</p>
+<ol>
+<li><p>git clone <a href="https://github.com/thomasf/exitwp" target="_blank" rel="noopener">https://github.com/thomasf/exitwp</a></p>
+</li>
+<li><p>sudo apt-get install python-yaml python-bs4 python-html2text</p>
+</li>
+<li><p>Lint and place all wordpress xml files in the wordpress-xml directory </p>
+</li>
+<li><p>run python exitwp.py</p>
+</li>
+</ol>
+
         </div></article>
       <article class="post">
     <header class="post-header">
@@ -370,33 +399,6 @@ sudo make install </code></pre>
 <p><code>db.test.find({sex:{$exists:true}})</code></p>
 <p>4.查询 空字符串</p>
 <p><code>db.test.find({&quot;x&quot;:&#39;&#39;})</code></p>
-
-        </div></article>
-      <article class="post">
-    <header class="post-header">
-      <h1 class="post-title"><a class="post-link" href="/2019/09/30/2015-06-16-wordpress-to-jekyll/">从wordpress迁移到jekyll</a>
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-09-30
-        </span></div>
-    </header>
-
-    <div class="post-content"><p>##从wordpress迁移到jekyll</p>
-<p>1.将wordpress内容导出成xml文件</p>
-<p>2.将xml变成markdown:<a href="https://github.com/thomasf/exitwp" target="_blank" rel="noopener">https://github.com/thomasf/exitwp</a></p>
-<p>###exitwp的使用方法</p>
-<ol>
-<li><p>git clone <a href="https://github.com/thomasf/exitwp" target="_blank" rel="noopener">https://github.com/thomasf/exitwp</a></p>
-</li>
-<li><p>sudo apt-get install python-yaml python-bs4 python-html2text</p>
-</li>
-<li><p>Lint and place all wordpress xml files in the wordpress-xml directory </p>
-</li>
-<li><p>run python exitwp.py</p>
-</li>
-</ol>
 
         </div></article>
       <nav class="pagination"><a class="prev" href="/">
