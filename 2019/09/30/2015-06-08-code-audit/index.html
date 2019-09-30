@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="php代码审计学"><meta name="keywords" content="代码审计, Hexo"><link rel="alternate" href="/default" title="Hexo"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="http://yoursite.com/2019/09/30/2015-06-08-code-audit/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>php代码审计学 - Hexo</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Hexo</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Hexo</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">php代码审计学
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-30
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#php代码审计"><span class="toc-text">php代码审计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入输出"><span class="toc-text">输入输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命令注入"><span class="toc-text">命令注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨站脚本"><span class="toc-text">跨站脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件包含"><span class="toc-text">文件包含</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码执行"><span class="toc-text">代码执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql注入"><span class="toc-text">sql注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XPath注入"><span class="toc-text">XPath注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP响应拆分"><span class="toc-text">HTTP响应拆分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件管理"><span class="toc-text">文件管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件上传"><span class="toc-text">文件上传</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量覆盖"><span class="toc-text">变量覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态函数"><span class="toc-text">动态函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#会话安全"><span class="toc-text">会话安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加密解密"><span class="toc-text">加密解密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#认证和授权"><span class="toc-text">认证和授权</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机函数"><span class="toc-text">随机函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息泄漏"><span class="toc-text">信息泄漏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-text">环境配置</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h2 id="php代码审计"><a href="#php代码审计" class="headerlink" title="php代码审计"></a>php代码审计</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>代码审计学，通过对程序源码进行系统规范的检测，通过对源码的分析找到程序在设计开发阶段可以存在的漏洞和逻辑错误，避免程序被非法入侵，造成企业的风险。</p>
+<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><p>输入输出是用户是系统与用户接触最频繁的交互，也是最有可能形成漏洞的区域，如果我们对用户的输入过滤验证不严格，用户 就可以构造恶意语句形成漏洞，在处理输入输出时一定要保持 用户所用能控制的值都是不安全的 都必须要通过我们程序过滤判断处理。</p>
+<ul>
+<li>对数据进行精确匹配</li>
+<li>接受白名单数据</li>
+<li>拒绝黑名单数据</li>
+<li>编码数据</li>
+</ul>
+<p>在php中可由用户输入的变量列表：</p>
+<ul>
+<li>$_SERVER</li>
+<li>$_GET</li>
+<li>$_POST</li>
+<li>$_COOKIE</li>
+<li>$_FILES</li>
+<li>$_ENV</li>
+<li>$_HTTP_COOKIE_VARS</li>
+<li>$_HTTP_ENV_VARS</li>
+<li>$_HTTP_GET_VARS</li>
+<li>$_HTTP_POST_FILES</li>
+<li>$_HTTP_POST_VARS</li>
+<li>$_HTTP_SERVER_VARS</li>
+</ul>
+<h3 id="命令注入"><a href="#命令注入" class="headerlink" title="命令注入"></a>命令注入</h3><p>php中主要实现命令的函数有：</p>
+<ul>
+<li>system</li>
+<li>exec</li>
+<li>passthru</li>
+<li>``</li>
+<li>shell_exec</li>
+<li>popen</li>
+<li>proc_open</li>
+<li>pcntl_exec </li>
+</ul>
+<p>审计中 我们通过批量搜索这些函数 对所带参数进行跟踪，判断是否过滤严格。</p>
+<h3 id="跨站脚本"><a href="#跨站脚本" class="headerlink" title="跨站脚本"></a>跨站脚本</h3><p>反射型跨站常常出现在用户提交的变量接受以后经过处理，直接输出显示给客户端；存储型跨站常常出现在用户提交的变量接受过经过处理后，存储在数据库里，然后又从数据库中读取到此信息输出到客户端。</p>
+<p>输出函数经常使用：</p>
+<ul>
+<li>echo</li>
+<li>print</li>
+<li>printf</li>
+<li>vprintf</li>
+<li>&lt;%=$test%&gt; </li>
+</ul>
+<p>对于反射型跨站，因为是立即输出显示给客户端，所以应该在当前的php页面检查变量被客户提交之后有无立即显示，在这个过程中变量是否有经过安全检查</p>
+<h3 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h3><p>PHP可能出现文件包含的函数：</p>
+<ul>
+<li>include</li>
+<li>include_once</li>
+<li>require</li>
+<li>require_once</li>
+<li>show_source</li>
+<li>highlight_file</li>
+<li>readfile</li>
+<li>file_get_contents</li>
+<li>fopen</li>
+<li>nt&gt;file</li>
+</ul>
+<h3 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h3><p>PHP可能出现代码注入的函数：</p>
+<ul>
+<li>eval</li>
+<li>preg_replace+/e</li>
+<li>assert</li>
+<li>call_user_func</li>
+<li>call_user_func_array</li>
+<li>create_function</li>
+</ul>
+<h3 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h3><p>SQL注入因为要操作数据库，所以一般会查找SQL语句关键字：</p>
+<ul>
+<li>insert</li>
+<li>delete</li>
+<li>update</li>
+<li>select</li>
+</ul>
+<h3 id="XPath注入"><a href="#XPath注入" class="headerlink" title="XPath注入"></a>XPath注入</h3><p>Xpath用于操作xml，我们通过搜索xpath来分析，提交给<fo nt face="Arial, sans-serif">xpath&lt;/fo 函数的参数是否有经过安全处理</fo></p>
+<h3 id="HTTP响应拆分"><a href="#HTTP响应拆分" class="headerlink" title="HTTP响应拆分"></a>HTTP响应拆分</h3><p>PHP中可导致HTTP响应拆分的情况为：使用header函数和使用$_SERVER变量。注意PHP的高版本会禁止HTTP表头中出现换行字符，这类可以直接跳过本测试。</p>
+<h3 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h3><p>PHP的用于文件管理的函数，如果输入变量可由用户提交，程序中也没有做数据验证，可能成为高危漏洞。我们应该在程序中搜索如下函数：</p>
+<ul>
+<li>copy</li>
+<li>rmdir</li>
+<li>unlink</li>
+<li>delete</li>
+<li>fwrite</li>
+<li>chmod</li>
+<li>fgetc</li>
+<li>fgetcsv</li>
+<li>fgets</li>
+<li>fgetss</li>
+<li>file</li>
+<li>file_get_contents</li>
+<li>fread</li>
+<li>readfile</li>
+<li>ftruncate</li>
+<li>file_put_contents</li>
+<li>fputcsv</li>
+<li>fputs</li>
+</ul>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>PHP文件上传通常会使用move_uploaded_file</p>
+<h3 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h3><ol>
+<li>遍历初始化变量 例： <code>foreach($_GET as $key =&gt; $value) $$key = $value;</code></li>
+<li>函数覆盖变量：<ul>
+<li>parse_str</li>
+<li>mb_parse_str</li>
+<li>import_request_variables </li>
+</ul>
+</li>
+<li>Register_globals=ON时，GET方式提交变量会直接覆盖</li>
+</ol>
+<h3 id="动态函数"><a href="#动态函数" class="headerlink" title="动态函数"></a>动态函数</h3><p>当使用动态函数时，如果用户对变量可控，则可导致攻击者执行任意函数</p>
+<h2 id="会话安全"><a href="#会话安全" class="headerlink" title="会话安全"></a>会话安全</h2><ul>
+<li><p>HTTPOnly设置<br><br><code>session.cookie_httponly = ON 时，客户端脚本(JavaScript 等)无法访问该cookie，打开该
+指令可以有效预防通过XSS 攻击劫持会话ID</code></p>
+</li>
+<li><p>domain 设置<br><br><code>检查session.cookie_domain 是否只包含本域，如果是父域，则其他子域能够获取本域的
+cookies</code></p>
+</li>
+<li><p>path设置<br><br><code>检查session.cookie_path，如果网站本身应用在/app，则path 必须设置为/app/，才能保
+证安全</code></p>
+</li>
+<li><p>cookies持续时间<br><br><code>检查session.cookie_lifetime，如果时间设置过程过长，即使用户关闭浏览器，攻击者也会
+危害到帐户安全</code></p>
+</li>
+<li><p>secure设置<br><br><code>如果使用HTTPS，那么应该设置session.cookie_secure=ON，确保使用HTTPS 来传输
+cookies</code></p>
+</li>
+<li><p>session固定<br><br><code>如果当权限级别改变时（例如核实用户名和密码后，普通用户提升到管理员），我们就应该
+修改即将重新生成的会话ID ，否则程序会面临会话固定攻击的风险。</code></p>
+</li>
+<li><p>CSRF<br><br><code>跨站请求伪造攻击，是攻击者伪造一个恶意请求链接，通过各种方式让正常用户访问后，
+会以用户的身份执行这些恶意的请求。我们应该对比较重要的程序模块，比如修改用户密码，添
+加用户的功能进行审查，检查有无使用一次性令牌防御csrf 攻击。</code></p>
+</li>
+</ul>
+<h2 id="加密解密"><a href="#加密解密" class="headerlink" title="加密解密"></a>加密解密</h2><ul>
+<li><p>明文存储密码<br><br><code>采用明文的形式存储密码会严重威胁到用户、应用程序、系统安全。</code></p>
+</li>
+<li><p>密码弱加密<br><br><code>使用容易破解的加密算法，MD5加密已经部分可以利用md5破解网站来破解</code></p>
+</li>
+<li><p>密码存储在攻击者能访问到的文件<br><br><code>例如：保存密码在txt 、ini、conf、inc、xml 等文件中，或者直接写在HTML 注释中</code></p>
+</li>
+</ul>
+<h2 id="认证和授权"><a href="#认证和授权" class="headerlink" title="认证和授权"></a>认证和授权</h2><ul>
+<li><p>用户认证<br><br><code>检查代码进行用户认证的位置，是否能够绕过认证，例如：登录代码可能存在表单注入。检查登录代码有无使用验证码等，防止暴力破解的手段</code></p>
+</li>
+<li><p>函数或文件的未认证调用<br><br><code>一些管理页面是禁止普通用户访问的，有时开发者会忘记对这些文件进行权限验证，导致漏洞发生某些页面使用参数调用功能，没有经过权限验证，比如index.php?action=upload</code></p>
+</li>
+<li><p>密码硬编码<br><br><code>有的程序会把数据库链接账号和密码，直接写到数据库链接函数中。</code></p>
+</li>
+</ul>
+<h2 id="随机函数"><a href="#随机函数" class="headerlink" title="随机函数"></a>随机函数</h2><ul>
+<li><p>rand()<br><br><code>rand()最大随机数是32767，当使用rand 处理session 时，攻击者很容易破解出session，建议使用mt_rand()</code></p>
+</li>
+<li><p>mt_srand()和mt_rand()<br><br><code>PHP4和PHP5&lt;5.2.6，这两个函数处理数据是不安全的。在web 应用中很多使用mt_rand
+来处理随机的session，比如密码找回功能等，这样的后果就是被攻击者恶意利用直接修改密码。</code></p>
+</li>
+</ul>
+<!--
+## 编码 ## 
+
+## php危险函数 ##
+-->
+
+<h2 id="信息泄漏"><a href="#信息泄漏" class="headerlink" title="信息泄漏"></a>信息泄漏</h2><p>phpinfo()</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ul>
+<li>open_basedir 设置</li>
+<li>allow_url_fopen 设置</li>
+<li>allow_url_include设置</li>
+<li>safe_mode_exec_dir 设置</li>
+<li>magic_quote_gpc设置</li>
+<li>register_globals设置</li>
+<li>safe_mode 设置</li>
+<li>session_use_trans_sid 设置</li>
+<li>display_errors 设置</li>
+<li>expose_php设置</li>
+</ul>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://yoursite.com">John Doe</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://yoursite.com/2019/09/30/2015-06-08-code-audit/">http://yoursite.com/2019/09/30/2015-06-08-code-audit/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/代码审计/">代码审计</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/09/30/2015-06-16-github-ssh-password/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">github免密码push的方法</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/09/30/2014-08-13-nginx-stream/">
+        <span class="next-text nav-default">nginx流媒体支持配置</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">John Doe</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

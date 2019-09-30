@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<link rel="alternate" href="/default" title="Hexo"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="http://yoursite.com/page/5/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>Hexo</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Hexo</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Hexo</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><section id="posts" class="posts"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-e588a0e999a4collectionse4b8ade79a84e69f90e4b8aakey/">mongodb 删除collections中的某个key</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>delete db.ocm.videoId</p>
+<p>db.domain.update({},{$unset: {affLink:1}},{multi: true});  </p>
+<p>db.user_account_gym.update({},{$unset:{mutexCodes:1}},{multi:true});  </p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-javascript-apie68993e58db0e5afb9e8b1a1e79a84e587bde695b0/">mongodb javascript api打印对象的函数</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><pre><code>&lt;code&gt;printjson&lt;/code&gt;</code></pre>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-e69bb4e696b0e585a8e983a8/">mongodb 更新全部</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>db.user_info.update({‘phone’:’13532114397’},{$set:{‘phone’:’’}},false,true);</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/03/14/2015-03-14-e5a49ae4b8aaphpe585b1e5ad98e79a84e697b6e58099efbc8ce4b88de7bc96e8af91e79a84e68385e586b5e4b88be5ae89e8a385gde5ba93/">多个php共存的时候，不编译的情况下安装GD库</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-03-14
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>先按照这个文章安装所有需要的库（没有的库或者文件自己百度了安装）</p>
+<p><a href="http://www.cnblogs.com/dyllove98/archive/2013/06/17/3141062.html" target="_blank" rel="noopener">http://www.cnblogs.com/dyllove98/archive/2013/06/17/3141062.html</a></p>
+<p>PHP 5.6.1 (cli) (built: Oct 16 2014 12:43:34)<br>Copyright (c) 1997-2014 The PHP Group<br>Zend Engine v2.6.0, Copyright (c) 1998-2014 Zend Technologies<br>with Zend OPcache v7.0.4-dev, Copyright (c) 1999-2014, by Zend Technologies</p>
+<p>1.安装完所有扩展，在安装GD的时候报错。</p>
+<p>gd_png.c:15:53: fatal error: png.h: No such file or directory</p>
+<p>解决办法</p>
+<ol>
+<li><p>vim gd_png.c</p>
+</li>
+<li><p>将#include “png.h” 替换成：#include “/usr/local/libpng/include/png.h”</p>
+</li>
+<li><p>make &amp;&amp; make install</p>
+</li>
+</ol>
+<p>2.安装扩展</p>
+<ul>
+<li><p>cd &lt;php源码&gt;/ext/gd</p>
+</li>
+<li><p>/usr/local/php56/bin/phpize</p>
+</li>
+</ul>
+<p>./configure –with-gd=/usr/local/gd –with-jpeg-dir=/usr/local/jpeg –with-png-dir=/usr/local/libpng –with-freetype-dir=/usr/local/freetype –with-zlib-dir=/usr/local/zlib –with-php-config=/usr/local/php56/bin/php-config –with-xpm-dir=/usr/lib/</p>
+<p>报错</p>
+<p>configure: error: xpm.h not found.</p>
+<p>解决办法</p>
+<p>sudo apt-get install libXpm-dev</p>
+<p>报错</p>
+<p>configure: error: Unable to find gd.h anywhere under /usr/local/gd</p>
+<p>解决方法2</p>
+<p>./configure –with-gd –with-jpeg-dir=/usr/local/jpeg –with-png-dir=/usr/local/libpng –with-freetype-dir=/usr/local/freetype –with-zlib-dir=/usr/local/zlib –with-php-config=/usr/local/php56/bin/php-config –with-xpm-dir=/usr/lib/</p>
+<p>配置成功</p>
+<p>make</p>
+<p>报错<br>libz.a(compress.o):relocation R_X86_64_32 against `.rodata.str1.1’ can not be used when making a shared object; recompile with -fPIC<br>/usr/local/zlib/lib/libz.a: could not read symbols: Bad value</p>
+<p>重新编译zlib</p>
+<p>编辑MakeFile文件 在CFLAGS=-O3  一行最后增加  -fPIC<br>make &amp;&amp;　make install</p>
+<p>编辑 sudo vim /etc/php56/php.ini</p>
+<p>重启php-fpm</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2014/11/13/2014-11-13-e59ca8e68ea7e588b6e58fb0e5bc95e585a5jquerye68896e88085e585b6e4bb96e5ba93/">在控制台引入jquery或者其他库</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-11-13
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>遇到很多页面请求谷歌api的，都可以用这个替代。</p>
+<p>javascript:void((function(){var scripts = document.createElement(“script”);<br>scripts.setAttribute(“src”,”<a href="http://libs.baidu.com/jquery/1.9.0/jquery.js&quot;" target="_blank" rel="noopener">http://libs.baidu.com/jquery/1.9.0/jquery.js&quot;</a>);<br>document.body.appendChild(scripts);}));</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2014/07/17/2014-07-17-e59bbae5ae9ae5aebde5baa6e4b88e100e79a84e997aee9a298/">固定宽度与100%的问题</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-07-17
+        </span><span class="post-category">
+            <a href="/categories/css/">css</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>在做安卓网页的时候。有这样一个问题。</p>
+<p> 左侧的icon是固定宽度38px<br>右侧的文本框 宽度100%<br>如果并排，文本框会掉到下面去。<br>![](file:///d:\我的文档\Tencent Files\269586320\Image\JA(21C0Q0}2IIR_3}}4@PKE.jpg)<a href="http://yangyaoapp-wordpress.stor.sinaapp.com/uploads/2014/07/io.jpg" target="_blank" rel="noopener"><img src="http://yangyaoapp-wordpress.stor.sinaapp.com/uploads/2014/07/io.jpg" alt></a></p>
+<p>答案是css3 父类设置为flex.图标position releative.文本框-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;</p>
+<p>完整代码：</p>
+<p>#main .phone{<br>margin: 0px 15px 0px 15px;<br>position:relative;<br>display:-webkit-box;<br>display:-webkit-flex;<br>display:-ms-flexbox;<br>display:flex;<br>}</p>
+<p>#main .phone .icon_phone{<br>background: url(‘images/icon_phone.png’) no-repeat;<br>width: 38px;<br>height: 42px;<br>position:relative;<br>}</p>
+<p>#main .phone .input_phone{<br>background: url(‘images/input.png’) no-repeat;<br>background-size:100% 100%;<br>-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;<br>}</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2014/07/02/2014-07-02-eaccelerator_locke58f88e698afe4b880e4b8aae78988e69cace79a84e997aee9a298/">eaccelerator_lock又是一个版本的问题</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-07-02
+        </span><span class="post-category">
+            <a href="/categories/个人/">个人</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>The shared memory caching functions (eaccelerator_get and eaccelerator_put among others) have been removed from 0.9.6. You will need to stick with 0.9.5.3 and configure it appropriately:</p>
+<p>./configure –enable-eaccelerator=shared –with-php-config=$PHP_PREFIX/bin/php-config –with-eaccelerator-shared-memory</p>
+<p><a href="http://groups.google.com/group/eaccelerator/browse_thread/thread/b66c9ca533f9977c/91f065751b668bae?pli=1" target="_blank" rel="noopener">http://groups.google.com/group/eaccelerator/browse_thread/thread/b66c9ca…</a></p>
+<p>Also, you can verify if the functions are there ahead of time with this bit of PHP code:</p>
+<pre><code>&lt;code&gt;&lt;?php
+print_r (get_extension_funcs( &apos;eaccelerator&apos; ));
+?&gt;&lt;/code&gt;
+
+
+
+
+&lt;code&gt;果然没有&lt;/code&gt;
+
+
+
+
+array(9) {
+  [0] =&gt; string(20) &quot;eaccelerator_caching&quot;
+  [1] =&gt; string(18) &quot;eaccelerator_clear&quot;
+  [2] =&gt; string(18) &quot;eaccelerator_clean&quot;
+  [3] =&gt; string(17) &quot;eaccelerator_info&quot;
+  [4] =&gt; string(18) &quot;eaccelerator_purge&quot;
+  [5] =&gt; string(27) &quot;eaccelerator_cached_scripts&quot;
+  [6] =&gt; string(28) &quot;eaccelerator_removed_scripts&quot;
+  [7] =&gt; string(24) &quot;eaccelerator_check_mtime&quot;
+  [8] =&gt; string(22) &quot;eaccelerator_optimizer&quot;
+}
+
+
+
+
+&lt;code&gt;
+&lt;/code&gt;</code></pre>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2014/07/02/2014-07-02-mysql-you-cant-specify-target-table-table-name-for-update-in-from-clause/">mysql You can't specify target table 'table name' for update in FROM clause</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-07-02
+        </span><span class="post-category">
+            <a href="/categories/个人/">个人</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>create table tmp as select min(id) as col1 from blur_article group by title;<br>    delete from blur_article where id not in (select col1 from tmp);<br>    drop table tmp;</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2014/06/26/2014-06-26-csse68c89e992aee68c89e4b88be5928ce69dbee5bc80e79a84e6a0b7e5bc8fe38082/">css按钮按下和松开的样式。</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-06-26
+        </span><span class="post-category">
+            <a href="/categories/个人/">个人</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>最初的想法是用js辅助。类似下面。</p>
+<p>onmousedown=”mouseDownFun();” onmouseup=”mouseUpFun();”</p>
+<p>才知道有css的：active伪类。把btn-on的样式写到：active里面就好了。</p>
+<p>.btn-green{color:#FFFFFF;background-color: #04BE02;border: solid 1px rgba(26,157,24,0.8);}<br>.btn-green:active{color:#FFFFFF;background-color: #04BE02;border: solid 1px rgba(26,157,24,0.8);background-color: #039702;color:rgba(255,255,255,0.6);}<br>.btn-green.btn-on{background-color: #039702;color:rgba(255,255,255,0.6);}</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2014/06/21/2014-06-21-xmle8bdace695b0e7bb84e79a84e58a9ee6b395/">xml转数组的办法</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2014-06-21
+        </span><span class="post-category">
+            <a href="/categories/个人/">个人</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>做微信支付的时候 返回了这样一段xml结构很简单。</p>
+<p><xml><openid><!--[CDATA[oyTZduPtQ8YtY7iFZ4ZVGc96Tn0I]]--></openid><br><appid><!--[CDATA[wx1e75456d3340674e]]--></appid><br><issubscribe>1</issubscribe><br><timestamp>1402992689</timestamp><br><noncestr><!--[CDATA[HZmUjtcf1W09TpIm]]--></noncestr><br><appsignature><!--[CDATA[64ae18be6e2ebbe8796726edde3d58f7047cea94]]--></appsignature><br><signmethod><!--[CDATA[sha1]]--></signmethod><br></xml></p>
+<p>读取代码：</p>
+<p>$res = @simplexml_load_string($xml,NULL,LIBXML_NOCDATA);<br>$res = json_decode(json_encode($res),true);<br>$weixinId=$res[‘OpenId’];</p>
+
+        </div></article>
+      <nav class="pagination"><a class="prev" href="/page/4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    <a class="next" href="/page/6/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></section></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">John Doe</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="理解yield和promise的一个过程"><meta name="keywords" content="php, Hexo"><link rel="alternate" href="/default" title="Hexo"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="http://yoursite.com/2019/09/30/2017-04-13-yield-and-promise/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>理解yield和promise的一个过程 - Hexo</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Hexo</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Hexo</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">理解yield和promise的一个过程
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-30
+        </span><span class="post-category">
+            <a href="/categories/php/">php</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#理解yield和promise的一个过程"><span class="toc-text">理解yield和promise的一个过程</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><h1 id="理解yield和promise的一个过程"><a href="#理解yield和promise的一个过程" class="headerlink" title="理解yield和promise的一个过程"></a>理解yield和promise的一个过程</h1><hr>
+<pre><code>function sayHello(){
+    return Promise.resolve(&apos;hello&apos;).then(function(hello){
+        return hello;
+    })
+}
+
+function *genHelloWorld(){
+    var hello = yield sayHello();
+    console.log(hello);
+    console.log(&apos;world&apos;);
+}
+
+/**
+ * 执行步骤
+ * 1.sayHello                                               返回 {}
+ * 2.yield sayHello()                                       返回 {value:Promise{&lt;pending&gt;},done:false}
+ * 3.var hello = sayHello() &amp;&amp; console.log(hello) &amp;&amp; console.log(&apos;world&apos;) 返回 { value: &apos;undefined&apos;, done: true }
+ */
+
+
+
+// 执行了 sayHello() 等于 执行了 resolve并传递了hello过去，执行了then并传递一个回调函数
+// 注意这里并没有赋值，仅仅是执行了sayHello函数，var hello 是 undefined
+// 此时 gen为一个空对象 {} !!! 注意这里并没有retuan但是 gen却是一个空对象,怎么来的？
+var gen = genHelloWorld()
+// 此时p为一个 Promise对象 {value:Promise{&lt;pending&gt;},done:false} 
+// 执行 yield {value:Promise{&lt;pending&gt;},done:false} 
+// !!! 注意这里也没有return 但是 p却是一个Promise对象？怎么来的？
+// 此时也没有赋值操作，var hello 是 undefined
+var p = gen.next()
+// 需要传递一个回调函数给 Promise 的then方法去获得返回的数据
+p.value.then(function(data){
+    // 获得then返回的数据之后，进行第二次迭代
+    // 在异步获取到值之后再调用next走下面的流程，代码写法是同步的，但却是异步执行的
+    // 此时 hello 被赋值为 data ，并且执行后面的语句直到遇到下一个yield
+    // 返回 { value: undefined, done: true } !!! 注意这里也是没有return的
+    console.log(gen.next(data));
+
+})</code></pre>
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://yoursite.com">John Doe</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://yoursite.com/2019/09/30/2017-04-13-yield-and-promise/">http://yoursite.com/2019/09/30/2017-04-13-yield-and-promise/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/php/">php</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2019/09/30/2017-04-24-artisan-command-for-thinkphp/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">为ThinkPhp设计一个Artisan 控制台</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2019/09/30/2015-06-26-nginx-bug/">
+        <span class="next-text nav-default">invalid PID number</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">John Doe</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>

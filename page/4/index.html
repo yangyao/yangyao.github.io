@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<link rel="alternate" href="/default" title="Hexo"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.0">
+<link rel="canonical" href="http://yoursite.com/page/4/">
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css"><link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.0">
+
+<script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true,"latex":false};
+</script>
+
+    <title>Hexo</title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Hexo</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Hexo</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><section id="posts" class="posts"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/10/2015-06-10-artisane78eafe5a283e5928ce58f82e695b0/">artisan环境和参数</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-10
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><pre><code>php artisan mail:all --skip=3  --env=dev</code></pre>
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-e58887e68da2e58886e694af/">切换分支</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>先确保master的已经pull 并且push干净。</p>
+<p>然后 切换到自己工作的分支。</p>
+<p>再 git merge master 将本地的master merge到工作的分支。</p>
+<p>merge之后都要download代码。</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-git-rest/">git rest</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>(1) 回退所有内容到上一个版本   </p>
+<p>git reset HEAD^   </p>
+<p>(2) 回退a.py这个文件的版本到上一个版本   </p>
+<p>git reset HEAD^ a.py   </p>
+<p>(3) 向前回退到第3个版本   </p>
+<p>git reset –soft HEAD~3   </p>
+<p>(4) 将本地的状态回退到和远程的一样   </p>
+<p>git reset –hard origin/master   </p>
+<p>(5) 回退到某个版本   </p>
+<p>git reset 057d   </p>
+<p>(7) 回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit   </p>
+<p>git revert HEAD  </p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodbe79a84maxe5928cmine6938de4bd9c/">mongodb的max和min操作</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p><code>db.person.``find``({}).``sort``({``&quot;age&quot;</code> <code>: -1}).limit(1)</code></p>
+<p>``</p>
+<p><code>-1 得到的是最大的值。max</code></p>
+<p><code>1 得到最小值 min</code></p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-e591bde4bba4e8a18ce4b88be79a84mongo-e69bb4e696b0/">命令行下的mongo 更新</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>var one = db.comment_info.findOne({_id:’0820ba3e9f6e07be0c7e63b6af3d9560’})  </p>
+<p>angelhere:PRIMARY&gt; one.content = “hello”</p>
+<p>db.comment_info.save(one)</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodbe6a8a1e7b38ae69fa5e689be/">mongodb模糊查找</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>db.user_info.find({email:{$regex:’majia’}}).sort({‘ct’:-1})</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-e58faae698bee7a4bae69fa5e8afa2e7bb93e69e84e69f90e4b880e58897/">只显示查询结构某一列</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>db.user_info.find({‘email’:{‘$regex’:’fitshike.com’}},{‘email’:1,’_id’:0})</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongo-ine69fa5e8afa2e79a84e4b880e4b8aabug/">mongo $in查询的一个bug</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>问题重现</p>
+<p>$condition [<strong>‘userId’</strong>]=[ <strong>‘$in’</strong>=&gt;$userIds ];</p>
+<p>报错，其中$userIds 为数组类型。</p>
+<p>Can’t canonicalize query: BadValue $in needs an array</p>
+<p>强制类型转换</p>
+<p>$condition [ <strong>‘userId’</strong>]=[ <strong>‘$in’</strong> =&gt;(array)$userIds ];</p>
+<p>依然报错。</p>
+<p>Can’t canonicalize query: BadValue $in needs an array</p>
+<p>最终解决办法（让人很不理解，可能是php mongo驱动的问题）</p>
+<p>$condition [<strong>‘userId’</strong>]=[ <strong>‘$in’</strong>=&gt;<em>array_values</em> ($userIds )];</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodbe7b4a2e5bc95e5928ce7bb84e59088e7b4a2e5bc95/">mongodb索引和组合索引</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><p>使用索引</p>
+<p>db.log_act.ensureIndex({‘actType’:1}, {“background”:true})</p>
+<p>组合索引</p>
+<p>db.log_act.ensureIndex({‘actType’:1,’channelId’:1,’userId’:1,’time’:1}, {“background”:true})</p>
+<p>组合索引的顺序对性能有很多大的影响。</p>
+<p>删除索引</p>
+<p>db.log_act.dropIndex({‘actType’:1,’channelId’:1,’userId’:1,’time’:1}, {“background”:true})</p>
+<p>db.log.getIndexes({})</p>
+
+        </div></article>
+      <article class="post">
+    <header class="post-header">
+      <h1 class="post-title"><a class="post-link" href="/2015/06/06/2015-06-06-mongodb-e4b88de883bde590afe58aa8e79a84e997aee9a298/">mongodb 不能启动的问题</a>
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-06-06
+        </span><span class="post-category">
+            <a href="/categories/CodeIgniter/">CodeIgniter</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><pre><code>sudo rm /var/lib/mongodb/mongod.lock
+
+
+
+sudo service mongod restart
+sudo mongod --dbpath /var/lib/mongodb/ --repair
+sudo mongod --dbpath /var/lib/mongodb/ --journal</code></pre><p>sudo mongod –dbpath /var/lib/mongodb/ –journal –smallfiles</p>
+
+        </div></article>
+      <nav class="pagination"><a class="prev" href="/page/3/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">Prev</span>
+      </a>
+    <a class="next" href="/page/5/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></section></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2019<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">John Doe</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.0"></script>
+</body>
+</html>
