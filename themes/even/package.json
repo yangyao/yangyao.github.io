@@ -1,6 +1,6 @@
 {
   "name": "hexo-theme-even",
-  "version": "2.11.0",
+  "version": "2.11.1",
   "description": "A super simple theme for Hexo",
   "main": "index.js",
   "keywords": [
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/ahonn/hexo-theme-even/issues"
   },
-  "homepage": "https://github.com/ahonn/hexo-theme-even#readme"
+  "homepage": "https://github.com/ahonn/hexo-theme-even#readme",
+  "devDependencies": {
+    "all-contributors-cli": "^6.9.1",
+    "eslint": "^6.5.1"
+  }
 }
