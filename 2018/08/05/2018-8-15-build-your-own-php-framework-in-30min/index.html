@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="30分钟，从0构建自己的PHP框架"/><meta name="keywords" content="php, YangYao's blog" /><link rel="alternate" href="/atom.xml" title="YangYao's blog" type="application/atom+xml">
+<link rel="canonical" href="http://yoursite.com/2018/08/05/2018-8-15-build-your-own-php-framework-in-30min/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
+
+<script>
+  window.config = {"leancloud":"","toc":"","fancybox":"","pjax":"","latex":""};
+</script>
+
+    <title>30分钟，从0构建自己的PHP框架 - YangYao's blog</title>
+  <meta name="generator" content="Hexo 6.0.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">YangYao's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">YangYao's blog</a>
+</div>
+
+<nav class="site-navbar"></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">30分钟，从0构建自己的PHP框架
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-05
+        </span><span class="post-category">
+            <a href="/categories/php/">php</a>
+            </span>
+        </div>
+    </header>
+
+    <div class="post-content"><h2 id="composer-一切的基础"><a href="#composer-一切的基础" class="headerlink" title="composer 一切的基础"></a>composer 一切的基础</h2><ul>
+<li><code>composer</code> 是什么? 在 <code>python</code> 语言中它叫 <code>pip</code> 在 <code>javascript</code> 中它叫 <code>npm</code>, 用于安装和管理第三方库</li>
+<li>安装 <code>composer</code> <a target="_blank" rel="noopener" href="http://getcomposer.org/" title="composer">http://getcomposer.org</a></li>
+<li>初始项目 <code>composer init</code> </li>
+<li>创建基础类  <code>Application.php</code></li>
+<li>使用 <code>composer psr-4</code> 加载基础类</li>
+</ul>
+<h2 id="异常的处理-踏出坚实的第一步"><a href="#异常的处理-踏出坚实的第一步" class="headerlink" title="异常的处理 - 踏出坚实的第一步"></a>异常的处理 - 踏出坚实的第一步</h2><ul>
+<li><p>安装 <code>symfony/debug</code> 引入基础的异常类</p>
+</li>
+<li><p>注册异常处理函数 (<code>set_error_handler</code>,<code>set_exception_handler</code>,<code>register_shutdown_function</code>)</p>
+</li>
+<li><p>异常的处理 (渲染输出,记录日志，邮件上报)</p>
+</li>
+<li><p>什么时候注册异常处理函数呢？ Laravel 是在 Handle http 请求的时候，注册 <code>HandleExceptions</code></p>
+</li>
+<li><p>直接抄袭 <code>Laravel</code> 即可<a target="_blank" rel="noopener" href="https://github.com/laravel/framework/blob/7212b1e9620c36bf806e444f6931cf5f379c68ff/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php#L28"> 代码位于 <code>Illuminate/Foundation/Bootstrap/HandleExceptions.php</code></a></p>
+</li>
+<li><p>laravel 的异常处理，还依赖<code>illuminate/http</code> 同样也安装一下</p>
+</li>
+<li><p>在 <code>Application</code> 中执行异常处理</p>
+</li>
+</ul>
+<h2 id="IOC-框架的灵魂"><a href="#IOC-框架的灵魂" class="headerlink" title="IOC - 框架的灵魂"></a>IOC - 框架的灵魂</h2><ul>
+<li>IOC 容器是什么?一个配置中心,一个数组</li>
+<li>什么叫依赖注入? 从配置中心找到你需要的那一个实例</li>
+<li>Laravel 容器的介绍 <a target="_blank" rel="noopener" href="https://gist.github.com/davejamesmiller/bd857d9b0ac895df7604dd2e63b23afe" title="IOC">https://gist.github.com/davejamesmiller/bd857d9b0ac895df7604dd2e63b23afe</a></li>
+<li>看一个简单的例子</li>
+<li>安装 容器 <code>illuminate/container</code></li>
+<li>后面会介绍容器使用的典型的例子</li>
+</ul>
+<h2 id="MVC架构的实现-从路由开始"><a href="#MVC架构的实现-从路由开始" class="headerlink" title="MVC架构的实现 - 从路由开始"></a><code>MVC</code>架构的实现 - 从路由开始</h2><ul>
+<li>fastroute 介绍 <a target="_blank" rel="noopener" href="http://nikic.github.io/2014/02/18/Fast-request-routing-using-regular-expressions.html" title="fastroute">http://nikic.github.io/2014/02/18/Fast-request-routing-using-regular-expressions.html</a></li>
+<li>安装 fastroute <code>composer require nikic/fast-route</code>、</li>
+<li>在入库初始化 fastroute</li>
+<li>如何使用控制器而不是闭包?</li>
+</ul>
+<h2 id="模板引擎-从外到里的美"><a href="#模板引擎-从外到里的美" class="headerlink" title="模板引擎 - 从外到里的美"></a>模板引擎 - 从外到里的美</h2><ul>
+<li>控制器有了，我们来输出页面</li>
+<li>twig <a target="_blank" rel="noopener" href="https://twig.symfony.com/" title="twig">https://twig.symfony.com/</a></li>
+<li>安装 <code>twig/twig</code></li>
+<li>使用 IOC 容器，加载视图</li>
+</ul>
+<h2 id="配置文件的加载-扩展只为未来"><a href="#配置文件的加载-扩展只为未来" class="headerlink" title="配置文件的加载 - 扩展只为未来"></a>配置文件的加载 - 扩展只为未来</h2><ul>
+<li><p>在进行真正的业务代码编写之前，我们需要一个配置文件</p>
+</li>
+<li><p>安装 dotEnv <a target="_blank" rel="noopener" href="https://symfony.com/doc/current/components/dotenv.html" title="dotEnv">https://symfony.com/doc/current/components/dotenv.html</a></p>
+</li>
+<li><p>配置基础信息 <code>环境和数据库</code></p>
+</li>
+</ul>
+<h2 id="orm-最受争议的存在"><a href="#orm-最受争议的存在" class="headerlink" title="orm 最受争议的存在"></a>orm 最受争议的存在</h2><ul>
+<li>一个特别简单的<code>ORM</code></li>
+<li>redbean <a target="_blank" rel="noopener" href="https://github.com/gabordemooij/redbean" title="redbean">https://github.com/gabordemooij/redbean</a></li>
+<li>安装 <code>gabordemooij/redbean</code></li>
+<li>配置 ，此时就用到了我们的配置文件了</li>
+<li>运行我们的 Hello world</li>
+</ul>
+<h2 id="命令行-geek的工具箱"><a href="#命令行-geek的工具箱" class="headerlink" title="命令行 - geek的工具箱"></a>命令行 - geek的工具箱</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://symfony.com/doc/current/components/console.html" title="console">https://symfony.com/doc/current/components/console.html</a></li>
+<li>安装 <code>symfony/console</code></li>
+<li>演示 hello world</li>
+</ul>
+<h2 id="完工了-也许仅仅只是开始！"><a href="#完工了-也许仅仅只是开始！" class="headerlink" title="完工了?? 也许仅仅只是开始！"></a>完工了?? 也许仅仅只是开始！</h2><ul>
+<li>日志</li>
+<li>验证器 validate</li>
+<li>http 中间件</li>
+<li>session 支持</li>
+<li>小项目最终都变成了大项目。</li>
+</ul>
+<h2 id="感谢大家！"><a href="#感谢大家！" class="headerlink" title="感谢大家！"></a>感谢大家！</h2>
+      </div>
+      
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/php/">php</a>
+            </div>
+        
+        <nav class="post-nav"></nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">YangYao</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v="></script>
+</body>
+</html>
