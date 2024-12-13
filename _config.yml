@@ -81,3 +81,6 @@ deploy:
   type: git
   repo: https://github.com/yangyao/yangyao.github.io.git
   branch: master
+
+skip_render:
+  - "**/*.html"
