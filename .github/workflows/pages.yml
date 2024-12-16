@@ -20,4 +20,4 @@ jobs:
         PERSONAL_TOKEN: ${{ secrets.TOKEN }}
 
         # The repository the action should deploy to
-        PUBLISH_REPOSITORY: yangyao.github.io
+        PUBLISH_REPOSITORY: yangyao/yangyao.github.io
