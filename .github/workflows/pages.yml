@@ -1,36 +1,23 @@
-name: Pages
-
+name: Hexo Deploy GitHub Pages
 on:
   push:
     branches:
       - hexo
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v1
-        with:
-          ref: hexo
-      - name: Use Node.js 14.15.x
-        uses: actions/setup-node@v1
-        with:
-          version: 14.15
-      - name: Setup hexo
-        env:
-          ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git config --global user.email "yangyaohappy@outlook.com"
-          git config --global user.name "yangyao"
-          npm install --no-optional hexo-cli -g
-          npm install --no-optional
-      - name: Hexo deploy
-        run: |
-          hexo clean
-          hexo g
-          hexo d
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Build and Deploy
+      uses: theme-keep/hexo-deploy-github-pages-action@master
+      env:
+        # Your GitHub Token
+        PERSONAL_TOKEN: ${{ secrets.TOKEN }}
+
+        # The repository the action should deploy to
+        PUBLISH_REPOSITORY: yangyao.github.io
