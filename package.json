@@ -5,6 +5,12 @@
   "hexo": {
     "version": "7.3.0"
   },
+  "scripts": {
+    "start": "hexo server",
+    "deploy": "hexo deploy",
+    "build": "hexo generate",
+    "publish": "npm run build && npm run deploy"
+  },
   "dependencies": {
     "hexo": "^7.3.0",
     "hexo-deployer-git": "^4.0.0",
