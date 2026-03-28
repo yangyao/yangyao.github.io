@@ -1,23 +1,54 @@
-name: Hexo Deploy GitHub Pages
+name: Deploy Hexo Site
+
 on:
   push:
     branches:
       - hexo
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      - name: Checkout
+        uses: actions/checkout@v5
 
-    - name: Build and Deploy
-      uses: theme-keep/hexo-deploy-github-pages-action@master
-      env:
-        # Your GitHub Token
-        PERSONAL_TOKEN: ${{ secrets.TOKEN }}
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
-        # The repository the action should deploy to
-        PUBLISH_REPOSITORY: yangyao/yangyao.github.io
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

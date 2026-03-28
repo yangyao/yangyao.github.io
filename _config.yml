@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://yangyao.github.io/yangyao.github.io
+url: https://blog.phpman.top
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -75,10 +75,3 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: even
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: https://github.com/yangyao/yangyao.github.io.git
-  branch: master
