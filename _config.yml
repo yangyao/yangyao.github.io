@@ -4,12 +4,12 @@
 
 # Site
 title: YangYao's blog
-subtitle:
-description:
-keywords:
+subtitle: Notes on software, tooling, and systems
+description: Personal notes on software engineering, tooling, backend development, and infrastructure.
+keywords: blog, software engineering, golang, php, qnap, nas, tools
 author: YangYao
 language: en
-timezone:
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
